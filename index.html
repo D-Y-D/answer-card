@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>答题卡</title>
+	<meta content='target-densitydpi=device-dpi, width=640' name='viewport'>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="white">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <link href="style/css.css" rel="stylesheet" type="text/css" /> -->
+	<link href="jquery.answer-card/css/jquery.answer-card.css" rel="stylesheet" type="text/css" />
+	<link href="jquery.answer-card/css/jquery.answer-card-theme-red.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="jquery.answer-card/js/jquery.answer-card.js"></script>
+	<script>
+		/*不同分辨率手机加载*/
+		var userScalable = "no";
+		var ins = "";
+		(function () {
+			if (window.devicePixelRatio === 1.5) {
+				userScalable = "yes";
+				ins = "initial-scale=0.5"
+			}
+			var text = "<meta content='" + ins + ", target-densitydpi=device-dpi, width=640,user-scalable=" + userScalable +
+				"' name='viewport'>";
+			document.write(text);
+		})();
+	</script>
+</head>
+
+<body>
+	<div class="" id="answer-card">
+	</div>
+
+	<script type="text/javascript">
+		var data = [{
+				question: '十八大修改党章遵循的原则____。',
+				type: 'radio',
+				options: ['坚持以马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想和科学发展观为指导选项A',
+					'坚持发扬党内民主，集中全党智慧',
+					'保持党章总体稳定，只修改那些必须改的，在党内已经形成共识的内容',
+					'以上都是'
+				],
+				result: ['D'],
+				explain: ['十八大修改党章遵循的原则：',
+					'坚持以马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想和科学发展观为指导，把党的十八大报告确立的重大理论观点和重大战略思想写入党章。',
+					'坚持发扬党内民主，集中全党智慧。',
+					'保持党章总体稳定，只修改那些必须改的，在党内已经形成共识的内容。'
+				]
+			},
+			{
+				question: '十八大修改党章遵循的原则____。',
+				type: 'multi',
+				options: ['坚持以马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想和科学发展观为指导选项A',
+					'坚持发扬党内民主，集中全党智慧',
+					'保持党章总体稳定，只修改那些必须改的，在党内已经形成共识的内容',
+					'以上都是'
+				],
+				result: ['A', 'B', 'C'],
+				explain: ['十八大修改党章遵循的原则：',
+					'坚持以马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想和科学发展观为指导，把党的十八大报告确立的重大理论观点和重大战略思想写入党章。',
+					'坚持发扬党内民主，集中全党智慧。',
+					'保持党章总体稳定，只修改那些必须改的，在党内已经形成共识的内容。'
+				]
+			},
+			{
+				question: '十八大修改党章遵循的原则____。',
+				type: 'multi',
+				options: ['坚持以马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想和科学发展观为指导选项A',
+					'坚持发扬党内民主，集中全党智慧',
+					'保持党章总体稳定，只修改那些必须改的，在党内已经形成共识的内容',
+					'以上都是'
+				],
+				result: ['A', 'B', 'C'],
+				explain: ['十八大修改党章遵循的原则：',
+					'坚持以马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想和科学发展观为指导，把党的十八大报告确立的重大理论观点和重大战略思想写入党章。',
+					'坚持发扬党内民主，集中全党智慧。',
+					'保持党章总体稳定，只修改那些必须改的，在党内已经形成共识的内容。'
+				]
+			},
+			{
+				question: '十八大修改党章遵循的原则____。',
+				type: 'checking',
+				options: ['坚持以马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想和科学发展观为指导选项A',
+					'坚持发扬党内民主，集中全党智慧',
+					'保持党章总体稳定，只修改那些必须改的，在党内已经形成共识的内容',
+					'以上都是'
+				],
+				result: ['A'],
+				explain: ['十八大修改党章遵循的原则：',
+					'坚持以马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想和科学发展观为指导，把党的十八大报告确立的重大理论观点和重大战略思想写入党章。',
+					'坚持发扬党内民主，集中全党智慧。',
+					'保持党章总体稳定，只修改那些必须改的，在党内已经形成共识的内容。'
+				]
+			}
+		];
+		$(function () {
+			$('#answer-card').answercard({
+				title: '党建学习',
+				imageUrl: '/jquery.answer-card/images/red/',
+				data: data
+			});
+		});
+	</script>
+</body>
+
+</html>

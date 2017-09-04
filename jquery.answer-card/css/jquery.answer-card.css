@@ -1,0 +1,85 @@
+.answer-card-container {
+    font-size: 12px;
+    width: 630px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px 0;
+    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+}
+
+.answer-card-container header .title {
+    font-size: 60px;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 80px;
+}
+
+.answer-card-container .question-content {
+    border-radius: 6px;
+    width: 560px;
+    margin: 20px auto;
+    padding: 20px;
+    line-height: 36px;
+    min-height: 280px;
+    font-size: 30px;
+}
+
+.answer-card-container .question-subject {
+    font-weight: bolder;
+}
+
+.answer-card-container .question-option .option-check {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: .5em;
+}
+
+.answer-card-container .explain-content {
+    position: relative;
+    border-radius: 6px;
+    width: 560px;
+    margin: 20px auto;
+    padding: 20px;
+    line-height: 36px;
+    min-height: 420px;
+    font-size: 26px;
+}
+
+.answer-card-container .explain-content .stamp {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 179px;
+    height: 177px;
+}
+
+.answer-card-container .button-container>.button-msg {
+    text-align: center;
+    font-size: 30px;
+    height: 36px;
+    line-height: 36px;
+    margin-top: 30px;
+    display: none;
+}
+
+.answer-card-container .button-container>.button-ok>a {
+    width: 323px;
+    margin: 0 auto;
+    margin-top: 20px;
+    line-height: 74px;
+    font-size: 30px;
+    text-align: center;
+    display: block;
+}
+
+.answer-card-container .grade-img {
+    padding: 3em 2em;
+}
+
+.answer-card-container .grade-img>img {
+    display: inline-block;
+    padding:1em;
+    height: 19em;
+    width:13em;
+}

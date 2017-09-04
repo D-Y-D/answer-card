@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery微信手机端答题卡特效_html5选择答题效果</title>
+<meta content='target-densitydpi=device-dpi, width=640' name='viewport'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+<meta name="format-detection" content="telephone=no">   
+<link href="style/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>    
+<script>
+	/*不同分辨率手机加载*/
+	var userScalable = "no";
+	var ins = "";
+	(function () {
+		if (window.devicePixelRatio === 1.5) {
+			userScalable = "yes";
+			ins = "initial-scale=0.5"
+		}
+		var text = "<meta content='" + ins + ", target-densitydpi=device-dpi, width=640,user-scalable=" + userScalable + "' name='viewport'>";
+		document.write(text);
+	})();
+</script>
+</head>
+<body>
+<div class="w640">  
+	<div id="h1" style="display:none;">
+		<header>
+			<div class="title">
+				<img src="images/title_text.png" alt="">
+			</div>
+		</header>
+		<div class="hm_text" style="display:none;">
+			
+		</div>
+	</div>
+	<div class="hm_text01" style="display:none;"><img src="images/text01.png" alt=""></div>
+	<div class="hm_btn" style="display:none;">
+		<div class="btn_bg"><a href="chapter.html">中国共产党章程</a></div>
+		<div class="btn_bg"><a href="subject.html">中国共产党纪律处分条例</a></div>
+		<div class="btn_bg" style="display:none;"><a href="#">中国共产党廉洁自律准则</a></div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function () {
+		setTimeout('$("#h1").slideDown(2000);', 100);           
+		setTimeout('$(".hm_text01").fadeIn(1000);', 2100);
+		setTimeout('$(".hm_btn").fadeIn(1500);', 3100);
+	});
+</script>
+
+
+</body>
+</html>

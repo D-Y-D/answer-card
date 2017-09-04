@@ -1,0 +1,533 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery微信手机端答题卡特效_html5选择答题效果</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta name="author" content="" />
+<meta name="renderer" content="webkit">
+<meta content='target-densitydpi=device-dpi, width=640' name='viewport'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+<meta name="format-detection" content="telephone=no">
+<link href="style/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<style type="text/css">
+	.ys {
+		color: #d30101;
+	}
+</style>
+<script>
+	/*不同分辨率手机加载*/
+	var userScalable = "no";
+	var ins = "";
+	(function () {
+		if (window.devicePixelRatio === 1.5) {
+			userScalable = "yes";
+			ins = "initial-scale=0.5"
+		}
+		var text = "<meta content='" + ins + ", target-densitydpi=device-dpi, width=640,user-scalable=" + userScalable + "' name='viewport'>";
+		document.write(text);
+	})();
+</script>
+</head>
+<body>
+<div id="answer" class="w640">
+	<header>
+		<div class="hm_icon"><a href="index.html"><img src="images/home_icon.png" alt=""></a></div>
+		<div class="title">
+			<img src="images/title_text.png"  alt="">
+		</div>
+	</header>
+	<div id="q1">
+		<div class="content">
+			<p class="subject_t">1、十八大修改党章遵循的原则____。</p>
+			<p><span><input id="rd1_1" name="rd1" type="radio" value="false"></span><label for="rd1_1">A.坚持以马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想和科学发展观为指导</label></p>
+			<p><span><input id="rd1_2" name="rd1" type="radio" value="false"></span><label for="rd1_2">B.坚持发扬党内民主，集中全党智慧</label></p>
+			<p><span><input id="rd1_3" name="rd1" type="radio" value="false"></span><label for="rd1_3">C.保持党章总体稳定，只修改那些必须改的，在党内已经形成共识的内容</label></p>
+			<p><span><input id="rd1_4" name="rd1" type="radio" value="true"></span><label for="rd1_4">D.以上都是</label></p>
+		</div>
+		<div id="msg1" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b1" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a1" style="display:none;">
+		<div class="content_jd">
+			<p>正确解答：十八大修改党章遵循的原则：</p>
+			<p>一是<font class="ys">坚持以马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想和科学发展观为指导，把党的十八大报告确立的重大理论观点和重大战略思想写入党章。</font></p>
+			<p>二是<font class="ys">坚持发扬党内民主，集中全党智慧。</font></p>
+			<p>
+			   三是<font class="ys">保持党章总体稳定，只修改那些必须改的，在党内已经形成共识的内容。</font>
+			</p>
+			<span id="r1" class="right" style="display:none;"></span>
+			<span id="w1" class="wrong" style="display:none;"></span>
+		</div>
+		<div class="enter_btn"><a id="next1" href="#">下一题</a></div>
+	</div>
+
+	<div id="q2" style="display:none;">
+		<div class="content">
+			<p class="subject_t">2、十八大提出要建设学习型、服务型、____马克思主义执政党等新内容。</p>
+			<p><span><input id="rd2_1" name="rd2" type="radio" value="false"></span><label for="rd2_1">A.活力型的</label></p>
+			<p><span><input id="rd2_2" name="rd2" type="radio" value="false"></span><label for="rd2_2">B.和谐型的</label></p>
+			<p><span><input id="rd2_3" name="rd2" type="radio" value="false"></span><label for="rd2_3">C.小康型的</label></p>
+			<p><span><input id="rd2_4" name="rd2" type="radio" value="true"></span><label for="rd2_4">D.创新型的</label></p>
+		</div>
+		<div id="msg2" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b2" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a2" style="display:none;">
+		<div class="content_jd">
+			<p>正确解答：十八大报告提出，要建设学习型、服务型、<font class="ys">创新型的</font>马克思主义执政党，必须全面加强党的思想建设、组织建设、作风建设、制度建设和反腐倡廉建设。</p>
+			<span id="r2" class="right" style="display:none;"></span>
+			<span id="w2" class="wrong" style="display:none;"></span>
+		</div>
+		<div class="enter_btn"><a id="next2" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q3" style="display:none;">
+		<div class="content">
+			<p class="subject_t">3、____是党的根本大法？</p>
+			<p><span><input id="rd3_1" name="rd3" type="radio" value="false"></span><label for="rd3_1">A.宪法</label></p>
+			<p><span><input id="rd3_2" name="rd3" type="radio" value="true"></span><label for="rd3_2">B.党章</label></p>
+			<p><span><input id="rd3_3" name="rd3" type="radio" value="false"></span><label for="rd3_3">C.行政法</label></p>
+			<p><span><input id="rd3_4" name="rd3" type="radio" value="false"></span><label for="rd3_4">D.中国共产党纪律处分条例</label></p>
+		</div>
+		<div id="msg3" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b3" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a3" style="display:none;">
+		<div class="content_jd">
+			<span id="r3" style="display:none;" class="right"></span>
+			<span id="w3" style="display:none;" class="wrong"></span>
+			<p>正确解答：<font class="ys">中国共产党章程</font>是中国共产党的根本大法,在党内生活中具有至高无上的地位和最高权威。</p>
+		</div>
+		<div class="enter_btn"><a id="next3" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q4" style="display:none;">
+		<div class="content">
+			<p class="subject_t">4、本次增写了党的各级领导干部必须具备的基本条件的内容，强调党的各级领导干部要____。</p>
+			<p><span><input id="rd4_1" name="rd4" type="radio" value="true"></span><label for="rd4_1">A.坚持原则，讲党性、重品行、做表率</label></p>
+			<p><span><input id="rd4_2" name="rd4" type="radio" value="false"></span><label for="rd4_2">B.照镜子、正衣冠、洗洗澡、治治病</label></p>
+			<p><span><input id="rd4_3" name="rd4" type="radio" value="false"></span><label for="rd4_3">C.严以修身、严以律己、严以用权</label></p>
+			<p><span><input id="rd4_4" name="rd4" type="radio" value="false"></span><label for="rd4_4">D.以上都不是</label></p>
+		</div>
+		<div id="msg4" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b4" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a4" style="display:none;">
+		<div class="content_jd">
+			<p>正确解答：本次增写了党的各级领导干部必须具备的基本条件的内容，强调党的各级领导干部要<font class="ys">坚持原则，讲党性、重品行、做表率</font>。</p>
+			<span id="r4" style="display:none;" class="right"></span>
+			<span id="w4" style="display:none;" class="wrong"></span>
+		</div>
+		<div class="enter_btn"><a id="next4" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q5" style="display:none;">
+		<div class="content">
+			<p class="subject_t">5、党章修正案最总纲部分关于党的建设的总体要求做了适当修改。增写了加强党的____建设，整体推进党的思想建设、组织建设、作风建设、反腐倡建设、制度建设，全面提高党的建设科学化水平。</p>
+			<p><span><input id="rd5_1" name="rd5" type="radio" value="false"></span><label for="rd5_1">A.队伍</label></p>
+			<p><span><input id="rd5_2" name="rd5" type="radio" value="true"></span><label for="rd5_2">B.纯洁性</label></p>
+			<p><span><input id="rd5_3" name="rd5" type="radio" value="false"></span><label for="rd5_3">C.纪律性</label></p>
+			<p><span><input id="rd5_4" name="rd5" type="radio" value="false"></span><label for="rd5_4">D.纯洁度</label></p>
+		</div>
+		<div id="msg5" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b5" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a5" style="display:none;">
+		<div class="content_jd">
+			<span id="r5" style="display:none;" class="right"></span>
+			<span id="w5" style="display:none;" class="wrong"></span>
+			<p>正确解答：党章修正案最总纲部分关于党的建设的总体要求做了适当修改。增写了加强党的<font class="ys">纯洁性</font>建设，整体推进党的思想建设、组织建设、作风建设、反腐倡建设、制度建设，全面提高党的建设科学化水平。</p>
+		</div>
+		<div class="enter_btn"><a id="next5" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q6" style="display:none;">
+		<div class="content">
+			<p class="subject_t">6、十八大将____同经济建设、政治建设、文化建设、社会建设一道纳入中国特色社会主义事业总体布局。</p>
+			<p><span><input id="rd6_1" name="rd6" type="radio" value="false"></span><label for="rd6_1">A.党性建设</label></p>
+			<p><span><input id="rd6_2" name="rd6" type="radio" value="false"></span><label for="rd6_2">B.生态建设</label></p>
+			<p><span><input id="rd6_3" name="rd6" type="radio" value="true"></span><label for="rd6_3">C.生态文明建设</label></p>
+			<p><span><input id="rd6_4" name="rd6" type="radio" value="false"></span><label for="rd6_4">D.理论建设</label></p>
+		</div>
+		<div id="msg6" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b6" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a6" style="display:none;">
+		<div class="content_jd">
+			<span id="r6" style="display:none;" class="right"></span>
+			<span id="w6" style="display:none;" class="wrong"></span>
+			<p>正确解答：十八大将<font class="ys">生态文明建设</font>同经济建设、政治建设、文化建设、社会建设一道纳入中国特色社会主义事业总体布局。</p>
+		</div>
+		<div class="enter_btn"><a id="next6" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q7" style="display:none;">
+		<div class="content">
+			<p class="subject_t">7、第三十三条增写了干部选拔监督的内容，第一款强调选拔干部要坚持____原则，坚持五湖四海、任人唯贤。</p>
+			<p><span><input id="rd7_1" name="rd7" type="radio" value="false"></span><label for="rd7_1">A.政绩突出</label></p>
+			<p><span><input id="rd7_2" name="rd7" type="radio" value="false"></span><label for="rd7_2">B.政治性强</label></p>
+			<p><span><input id="rd7_3" name="rd7" type="radio" value="true"></span><label for="rd7_3">C.德才兼备、以德为先得</label></p>
+			<p><span><input id="rd7_4" name="rd7" type="radio" value="false"></span><label for="rd7_4">D.内部推荐</label></p>
+		</div>
+		<div id="msg7" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b7" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a7" style="display:none;">
+		<div class="content_jd">
+			<span id="r7" style="display:none;" class="right"></span>
+			<span id="w7" style="display:none;" class="wrong"></span>
+			<p>正确解答：第三十三条增写了干部选拔监督的内容，第一款强调选拔干部要坚持<font class="ys">德才兼备、以德为先得</font>原则，坚持五湖四海、任人唯贤。</p>
+		</div>
+		<div class="enter_btn"><a id="next7" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q8" style="display:none;">
+		<div class="content">
+			<p class="subject_t">8、____是这次党章修改的最大亮点和最突出的历史贡献。</p>
+			<p><span><input id="rd8_1" name="rd8" type="radio" value="true"></span><label for="rd8_1">A.对科学发展做出新的定位和阐述。把科学发展观写在我们党的旗帜上</label></p>
+			<p><span><input id="rd8_2" name="rd8" type="radio" value="false"></span><label for="rd8_2">B.对生态文明做出新的定位和阐述。把生态文明写在我们党的旗帜上</label></p>
+			<p><span><input id="rd8_3" name="rd8" type="radio" value="false"></span><label for="rd8_3">C.对党的建设做出新的定位和阐述。把党的建设写在我们党的旗帜上</label></p>
+			<p><span><input id="rd8_4" name="rd8" type="radio" value="false"></span><label for="rd8_4">D.对反腐倡廉做出新的定位和阐述。把反腐倡廉写在我们党的旗帜上</label></p>
+		</div>
+		<div id="msg8" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b8" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a8" style="display:none;">
+		<div class="content_jd">
+			<span id="r8" style="display:none;" class="right"></span>
+			<span id="w8" style="display:none;" class="wrong"></span>
+			<p>正确解答：<font class="ys">对科学发展做出新的定位和阐述。把科学发展观写在我们党的旗帜上</font>是这次党章修改的最大亮点和最突出的历史贡献。</p>
+		</div>
+		<div class="enter_btn"><a id="next8" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q9" style="display:none;">
+		<div class="content">
+			<p class="subject_t">9.为什么需要多次修改党章？</p>
+			<p><span><input id="rd9_1" type="radio" value="false" name="rd9" /></span><label for="rd9_1">A.党的理论的与时俱进和不断创新</label></p>
+			<p><span><input id="rd9_2" type="radio" value="false" name="rd9" /></span><label for="rd9_2">B.党和国家事业发展的新要求</label></p>
+			<p><span><input id="rd9_3" type="radio" value="false" name="rd9" /></span><label for="rd9_3">C.党的建设伟大工程不断有新的创造和新的经验</label></p>
+			<p><span><input id="rd9_4" type="radio" value="true" name="rd9" /></span><label for="rd9_4">D.以上都是</label></p>
+		</div>
+		<div id="msg9" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b9" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a9" style="display:none;">
+		<div class="content_jd">
+			<span id="r9" style="display:none;" class="right"></span>
+			<span id="w9" style="display:none;" class="wrong"></span>
+			<p>
+				正确解答：党章是党的根本大法，它集中体现党的理论和路线方针政策，体现党的重要主张，规定了党的重要制度和体制机制。因此，党章的基本内容要保持连续性和稳定性。同时，也要根据形势和任务的发展变化对党章进行必要修改。</p>
+			<p>
+			   所谓形势和任务的变化，主要是三个方面：一是<font class="ys">党的理论的与时俱进和不断创新</font>；二是<font class="ys">党和国家事业发展的新要求</font>；三是<font class="ys">党的建设伟大工程不断有新的创造和新的经验</font>。
+			</p>
+		</div>
+		<div class="enter_btn"><a id="next9" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q10" style="display:none;">
+		<div class="content">
+			<p class="subject_t">10、（多选）党章第16次修改增写了以下哪些内容？</p>
+			<p><span><input id="cb10_1" type="checkbox" value="true" name="cb10" /></span><label for="cb10_1">A.确立了“中国特色社会主义制度”内容</label></p>
+			<p><span><input id="cb10_2" type="checkbox" value="true" name="cb10" /></span><label for="cb10_2">B.增写了只有改革开放，才能发展中国、发展社会主义、发展马克思主义的内容</label></p>
+			<p><span><input id="cb10_3" type="checkbox" value="true" name="cb10" /></span><label for="cb10_3">C.增写了加强党的纯洁性建设</label></p>
+			<p><span><input id="cb10_4" type="checkbox" value="false" name="cb10" /></span><label for="cb10_4">D.增写了民主集中制是党的组织原则</label></p>
+		</div>
+		<div id="msg10" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b10" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a10" style="display:none;">
+		<div class="content_jd">
+			<span id="r10" style="display:none;" class="right"></span>
+			<span id="w10" style="display:none;" class="wrong"></span>
+			<p>
+				正确解答： 党章第16次修改增写了以下几点内容:
+			</p>
+				<p>一是<font class="ys">确立了“中国特色社会主义制度”内容，将中国特色社会主义道路、理论体系、制度作为一个整体在党章中进行完整表述；</font></p>
+				<p>二是<font class="ys">增写了只有改革开放，才能发展中国、发展社会主义、发展马克思主义的内容；</font></p>
+				<p>三是<font class="ys">增写了加强党的纯洁性建设。</font></p>                
+		</div>
+		<div class="enter_btn"><a id="next10" href="javascript:void(0);">查看结果</a></div>
+	</div>
+
+</div>
+<div id="score" class="w640" style="display:none;">
+	<header>
+		<div id="fs"></div>
+	</header>
+	<div class="hm_text02"><img src="images/text02.png" alt=""></div>
+	<div class="hm_btn">
+		<div class="btn_bg"><a href="chapter.html">中国共产党章程</a></div>
+		<div class="btn_bg"><a href="subject.html">中国共产党纪律处分条例</a></div>
+		<div class="btn_bg"  style="display:none;"><a href="#">中国共产党廉洁自律准则</a></div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function () {
+		a1 = a2 = a3 = a4 = a5 = a6 = a7 = a8 = a9 = a10 = 0;
+		$("#b1").click(function () {
+			var rl1 = $('#q1 input:radio[name="rd1"]:checked').val();
+			if (rl1 == null) {
+				$("#msg1").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q1").fadeOut(100);', 1);
+				setTimeout('$("#a1").fadeIn(1000);', 100);
+				if (rl1 == "true") {
+					a1 = 1;
+					setTimeout('$("#r1").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w1").slideDown()', 500);
+				}
+			}
+		});
+		$("#next1").click(function () {
+			setTimeout('$("#a1").fadeOut(100);', 1);
+			setTimeout('$("#q2").fadeIn(1000);', 100);
+		});
+
+		$("#b2").click(function () {
+			var rl2 = $('#q2 input:radio[name="rd2"]:checked').val();
+			if (rl2 == null) {
+				$("#msg2").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q2").fadeOut(100);', 1);
+				setTimeout('$("#a2").fadeIn(1000);', 100);
+				if (rl2 == "true") {
+					a2 = 1;
+					setTimeout('$("#r2").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w2").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next2").click(function () {
+			setTimeout('$("#a2").fadeOut(100);', 1);
+			setTimeout('$("#q3").fadeIn(1000);', 100);
+		});
+
+		$("#b3").click(function () {
+			var rl3 = $('#q3 input:radio[name="rd3"]:checked').val();
+			if (rl3 == null) {
+				$("#msg3").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q3").fadeOut(100);', 1);
+				setTimeout('$("#a3").fadeIn(1000);', 100);
+				if (rl3 == "true") {
+					a3 = 1;
+					setTimeout('$("#r3").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w3").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next3").click(function () {
+			setTimeout('$("#a3").fadeOut(100);', 1);
+			setTimeout('$("#q4").fadeIn(1000);', 100);
+		});
+
+		$("#b4").click(function () {
+			var rl4 = $('#q4 input:radio[name="rd4"]:checked').val();
+			if (rl4 == null) {
+				$("#msg4").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q4").fadeOut(100);', 1);
+				setTimeout('$("#a4").fadeIn(1000);', 100);
+				if (rl4 == "true") {
+					a4 = 1;
+					setTimeout('$("#r4").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w4").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next4").click(function () {
+			setTimeout('$("#a4").fadeOut(100);', 1);
+			setTimeout('$("#q5").fadeIn(1000);', 100);
+		});
+
+		$("#b5").click(function () {
+			var rl5 = $('#q5 input:radio[name="rd5"]:checked').val();
+			if (rl5 == null) {
+				$("#msg5").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q5").fadeOut(100);', 1);
+				setTimeout('$("#a5").fadeIn(1000);', 100);
+				if (rl5 == "true") {
+					a5 = 1;
+					setTimeout('$("#r5").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w5").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next5").click(function () {
+			setTimeout('$("#a5").fadeOut(100);', 1);
+			setTimeout('$("#q6").fadeIn(1000);', 100);
+		});
+
+		$("#b6").click(function () {
+			var rl6 = $('#q6 input:radio[name="rd6"]:checked').val();
+			if (rl6 == null) {
+				$("#msg6").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q6").fadeOut(100);', 1);
+				setTimeout('$("#a6").fadeIn(1000);', 100);
+				if (rl6 == "true") {
+					a6 = 1;
+					setTimeout('$("#r6").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w6").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next6").click(function () {
+			setTimeout('$("#a6").fadeOut(100);', 1);
+			setTimeout('$("#q7").fadeIn(1000);', 100);
+		});
+
+
+		$("#b7").click(function () {
+			var rl7 = $('#q7 input:radio[name="rd7"]:checked').val();
+			if (rl7 == null) {
+				$("#msg7").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q7").fadeOut(100);', 1);
+				setTimeout('$("#a7").fadeIn(1000);', 100);
+				if (rl7 == "true") {
+					a7 = 1;
+					setTimeout('$("#r7").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w7").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next7").click(function () {
+			setTimeout('$("#a7").fadeOut(100);', 1);
+			setTimeout('$("#q8").fadeIn(1000);', 100);
+		});
+
+
+		$("#b8").click(function () {
+			var rl8 = $('#q8 input:radio[name="rd8"]:checked').val();
+			if (rl8 == null) {
+				$("#msg8").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q8").fadeOut(100);', 1);
+				setTimeout('$("#a8").fadeIn(1000);', 100);
+				if (rl8 == "true") {
+					a8 = 1;
+					setTimeout('$("#r8").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w8").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next8").click(function () {
+			setTimeout('$("#a8").fadeOut(100);', 1);
+			setTimeout('$("#q9").fadeIn(1000);', 100);
+		});
+
+		$("#b9").click(function () {
+			var rl9 = $('#q9 input:radio[name="rd9"]:checked').val();
+			if (rl9 == null) {
+				$("#msg9").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q9").fadeOut(100);', 1);
+				setTimeout('$("#a9").fadeIn(1000);', 100);
+				if (rl9 == "true") {
+					a9 = 1;
+					setTimeout('$("#r9").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w9").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next9").click(function () {
+			setTimeout('$("#a9").fadeOut(100);', 1);
+			setTimeout('$("#q10").fadeIn(1000);', 100);
+		});
+
+
+		$("#b10").click(function () {
+			var cbl10 = $('#q10 input:checkbox[name="cb10"][checked]');
+			if (cbl10.length == 0) {
+				$("#msg10").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q10").fadeOut(100);', 1);
+				setTimeout('$("#a10").fadeIn(1000);', 100);
+				var checkList = new Array();
+				var rightList = new Array("cb10_1","cb10_2", "cb10_3");
+				var rightFlag = false;
+				if (cbl10.length == rightList.length) {
+					cbl10.each(function () {
+						checkList.push($(this).attr("id"));
+					});
+				}
+				if (checkList.sort().toString() == rightList.sort().toString()) {
+					rightFlag = true;
+				}
+				if (rightFlag) {
+					a10 = 1;
+					setTimeout('$("#r10").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w10").slideDown()', 500);
+				}
+			}
+		});
+		$("#next10").click(function () {
+			setTimeout('$("#answer").fadeOut(100);', 1);
+			setTimeout('$("#score").fadeIn(1000);', 100);
+
+			sc = a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10;
+			if (sc == 0) {
+				$('#fs').addClass("f0");
+			} else if (sc == 1) {
+				$('#fs').addClass("f10");
+			} else if (sc == 2) {
+				$('#fs').addClass("f20");
+			} else if (sc == 3) {
+				$('#fs').addClass("f30");
+			} else if (sc == 4) {
+				$('#fs').addClass("f40");
+			} else if (sc == 5) {
+				$('#fs').addClass("f50");
+			} else if (sc == 6) {
+				$('#fs').addClass("f60");
+			} else if (sc == 7) {
+				$('#fs').addClass("f70");
+			} else if (sc == 8) {
+				$('#fs').addClass("f80");
+			} else if (sc == 9) {
+				$('#fs').addClass("f90");
+			} else if (sc == 10) {
+				$('#fs').addClass("f100");
+			}
+		});
+	});
+</script>
+</body>
+</html>

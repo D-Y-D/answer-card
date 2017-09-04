@@ -1,0 +1,56 @@
+html {
+    background: #EB3F3E;
+}
+
+.answer-card-container {
+    background: #EB3F3E;
+}
+
+.answer-card-container header .title {
+    color: #fff;
+}
+
+.answer-card-container .question,
+.answer-card-container .explain {
+    background: #EB3F3E url("../images/red/index_bg.png") no-repeat right bottom;
+}
+
+.answer-card-container .question-content {
+    background: url("../images/red/t_w.png");
+    color: #FFF;
+}
+
+.answer-card-container .question-option .option-check {
+    background-image: url("../images/red/uncheck.png");
+}
+
+.answer-card-container .question-option.quest-option-selected .option-check {
+    background-image: url("../images/red/checked.png");
+}
+
+.answer-card-container .explain-content {
+    background: url("../images/red/t_b.png");
+    color: #450b0c;
+}
+
+.answer-card-container .explain-content .stamp.right {
+    background: url("../images/red/wrong.png") no-repeat;
+    width: 179px;
+    height: 177px;
+}
+
+.answer-card-container .explain-content .stamp.wrong {
+    background: url("../images/red/wrong.png") no-repeat;
+    width: 179px;
+    height: 177px;
+}
+
+.button-container>.button-msg {
+    color: #FFF;
+}
+
+.button-container>.button-ok>a {
+    background: #FEC71F;
+    color: #d22f28;
+    border-radius: 10px;
+}
