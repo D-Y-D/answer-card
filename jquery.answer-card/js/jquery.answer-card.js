@@ -5,6 +5,26 @@
         this.container = $elem;
         //图片路径
         this.imageUrl = opt.imageUrl || '';
+        this.images = [
+            'index_bg.png',
+            't_b.png',
+            't_w.png',
+            'uncheck.png',
+            'checked.png',
+            'right.png',
+            'wrong.png',
+            'finish.png',
+            '0f.png',
+            '1f.png',
+            '2f.png',
+            '3f.png',
+            '4f.png',
+            '5f.png',
+            '6f.png',
+            '7f.png',
+            '8f.png',
+            '9f.png',
+        ];
         //题库数据
         this.data = opt.data;
         //主题
@@ -354,6 +374,16 @@
         }
     }
 
+    AnswerCard.prototype.preloadImage = function () {
+        images = this.images;
+        for (var i = 0, len = images.length; i < len; i++) {
+            var img = new Image();
+            img.onload = function () {};
+            img.onerror = function () {};
+            img.src = this.imageUrl + images[i];
+        }
+    }
+
 
     var methods = {
         init: function (options) {
@@ -396,6 +426,8 @@
 
                     $(document).scrollTop(0);
                 })
+
+                answercard.preloadImage();
 
             });
         },
