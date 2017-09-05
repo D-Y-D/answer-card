@@ -5,6 +5,7 @@
         this.container = $elem;
         //图片路径
         this.imageUrl = opt.imageUrl || '';
+        //图片
         this.images = [
             'index_bg.png',
             't_b.png',
@@ -25,6 +26,10 @@
             '8f.png',
             '9f.png',
         ];
+        //随机生成
+        this.random = this.random || false;
+        //范围（个数）
+        this.range = this.range || -1;
         //题库数据
         this.data = opt.data;
         //主题
@@ -382,6 +387,48 @@
             img.onerror = function () {};
             img.src = this.imageUrl + images[i];
         }
+    }
+
+    AnswerCard.prototype.getRangeQuestions = function () {
+
+        if (!random) {
+            return;
+        }
+
+        function sortNumber(a, b) {
+            //升序
+            return a - b;
+        }
+
+        function getRandom(iStart, iEnd) {
+            var iChoice = iStart - iEnd + 1;
+            return Math.abs(Math.floor(Math.random() * iChoice)) + iStart;
+        }
+
+        //js实现随机选取n个数字，存入一个数组，并排序
+        var questions = [],
+            count = this.range,
+            total = this.data.length,
+            data = [],
+            index;
+
+        for (var i = 0; i < count; i++) {
+            var index = getRandom(0, total);
+            if (questions.indexOf(index) === -1) {
+                questions.push();
+            } else {
+                --i;
+                continue;
+            }
+        }
+
+        questions.sort(sortNumber);
+
+        for (var i = 0; i < count; i++) {
+            data.push(this.data[questions[i]]);
+        }
+
+        this.data = data;
     }
 
 
