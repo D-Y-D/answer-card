@@ -1,9 +1,15 @@
 html {
-    background: #EB3F3E;
+    padding: 0;
+    background: #EB3F3E url("../images/red/index_bg.png") no-repeat right bottom;
+    background-attachment: fixed;
+}
+
+body {
+    padding: 0;
+    margin: 0;
 }
 
 .answer-card-container {
-    background: #EB3F3E;
 }
 
 .answer-card-container header .title {
@@ -12,7 +18,7 @@ html {
 
 .answer-card-container .question,
 .answer-card-container .explain {
-    background: #EB3F3E url("../images/red/index_bg.png") no-repeat right bottom;
+    /* background: #EB3F3E url("../images/red/index_bg.png") no-repeat right bottom; */
 }
 
 .answer-card-container .question-content {
@@ -28,13 +34,18 @@ html {
     background-image: url("../images/red/checked.png");
 }
 
+.answer-card-container .question-option.quest-option-check-answer-selected {
+    /* color: #45B148; */
+    font-weight: bolder;
+}
+
 .answer-card-container .explain-content {
     background: url("../images/red/t_b.png");
     color: #450b0c;
 }
 
 .answer-card-container .explain-content .stamp.right {
-    background: url("../images/red/wrong.png") no-repeat;
+    background: url("../images/red/right.png") no-repeat;
     width: 179px;
     height: 177px;
 }

@@ -33,6 +33,7 @@
             explain: false,
             answer: true,
             browse: false,
+            check_answers: false
         };
         //显示错误答题的时机
         this.fail = {
@@ -42,6 +43,7 @@
         //语言
         this.language = {
             "ok": "确定",
+            "check_answers": "查看答案",
             "no_choice": "您还没选择！",
             'checking': '判断',
             'radio': '单选',
@@ -49,7 +51,6 @@
             'right_answers': '正确答案',
             'yes': "是",
             'no': "否"
-
         };
         //选项序号
         this.index = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
@@ -64,7 +65,7 @@
         explain = this.createExplain(),
             btn = this.createButton();
 
-        container.append([title, question, explain, btn].join(''));
+        container.append(['<div>', title, question, explain, btn, '</div>'].join(''));
     }
 
     AnswerCard.prototype.createNext = function () {
@@ -103,8 +104,8 @@
 
         question = ['<div class="question">',
             '<div class="question-content">',
-            '<p class="question-subject">', this.currentIndex + 1, '.', '[', type, ']', item.question, '</p>',
-            this.createQuestionOptions(item.type, item.options),
+            '<p class="question-subject">', this.currentIndex + 1, '、', '<span class="question-type">[', type, ']</span>', item.question, '</p>',
+            this.createQuestionOptions(item),
             '</div>',
             '</div>'
         ].join('');
@@ -112,11 +113,16 @@
         return question;
     }
 
-    AnswerCard.prototype.createQuestionOptions = function (type, data) {
+    AnswerCard.prototype.createQuestionOptions = function (questionInfo) {
 
         var options = [],
+            type = questionInfo.type,
             item,
-            index = this.index;
+            index = this.index,
+            option,
+            data = questionInfo.options,
+            result = questionInfo.selected,
+            selected;
 
         if (type === 'checking') {
             data = [this.language.yes, this.language.no];
@@ -124,9 +130,17 @@
 
         for (var i = 0, len = data.length; i < len; i++) {
             item = data[i];
-            options.push('<p class="question-option" data-index="' + i + '">' +
+            option = index[i];
+            selected = '';
+
+            if (this.display.check_answers) {
+                if (result.indexOf(option) !== -1) {
+                    selected = 'quest-option-selected quest-option-check-answer-selected';
+                }
+            }
+            options.push('<p class="question-option ' + selected + '" data-index="' + i + '">' +
                 '<span class="option-check"></span>' +
-                '<label for="">' + index[i] + '.' + item + '</label>' +
+                '<label for="">' + option + '.' + item + '</label>' +
                 '</p>');
         }
 
@@ -136,18 +150,18 @@
     AnswerCard.prototype.createExplain = function () {
         var data = this.data,
             explain,
+            stamp = this.statistics.pass.indexOf(this.currentIndex) !== -1 ? 'right' : 'wrong',
             item = data[this.currentIndex];
 
-
-        if (!this.display.explain) {
+        if (!this.display.explain && !this.display.check_answers) {
             return "";
         }
 
         explain = ['<div class="explain">',
             '<div class="explain-content">',
-            '<p class="explain-subject">', this.language['right_answers'], '：', '</p>',
-            this.createExplainContent(item.explain),
-            '<span class="stamp right"></span>',
+            '<p class="explain-subject">', this.language.right_answers, '： ', item.result.join('、'), '</p>',
+            this.createExplainContent(item),
+            '<span class="stamp ', stamp, '"></span>',
             '</div>',
             '</div>'
         ].join('');
@@ -155,8 +169,9 @@
         return explain;
     }
 
-    AnswerCard.prototype.createExplainContent = function (data) {
+    AnswerCard.prototype.createExplainContent = function (explainInfo) {
         var content = [],
+            data = explainInfo.explain,
             item;
 
         for (var i = 0, len = data.length; i < len; i++) {
@@ -173,7 +188,6 @@
             singleGrade = Math.ceil(100 / this.data.length),
             total = singleGrade * this.statistics.pass.length || 0,
             grade;
-        debugger;
 
         if (!total || isNaN(total)) {
             total = '000';
@@ -205,12 +219,28 @@
     AnswerCard.prototype.createButton = function () {
 
         var btn = ['<div class="button-container">',
-            '<div class="button-msg">', this.language['no_choice'], '</div>',
-            '<div class="button-ok">', '<a>', this.language['ok'], '</a>', '</div>',
+            '<div class="button-msg">', this.language.no_choice, '</div>',
+            '<div class="button-ok">', '<a>', this.language.ok, '</a>', '</div>',
             '</div>'
         ].join('');
 
         return btn;
+    }
+
+    AnswerCard.prototype.createFinished = function () {
+        var finished;
+
+        finished = ['<div class="finish-container">',
+            '<img src="', this.imageUrl, 'finish.png', '" />',
+            '</div>'
+        ].join('');
+
+        this.container.find('.question,.explain,.button-container').remove();
+        this.container.find('header').after([finished].join(''));
+    }
+
+    AnswerCard.prototype.setButtonText = function (text) {
+        this.container.find('.button-ok>a').text(text);
     }
 
     AnswerCard.prototype.toggleQuestionOption = function ($elem) {
@@ -239,7 +269,9 @@
     }
 
     AnswerCard.prototype.markingQuestion = function (index) {
-        debugger;
+
+        this.getQuestionSelectedOption(index);
+
         var question = this.data[index],
             result = question.result.toString(),
             selected = question.selected.toString();
@@ -253,8 +285,8 @@
         }
     }
 
-    AnswerCard.prototype.getQuestionSelectedOption = function () {
-        var question = this.data[this.currentIndex],
+    AnswerCard.prototype.getQuestionSelectedOption = function (index) {
+        var question = this.data[index],
             $elem = this.container,
             self = this;
 
@@ -280,7 +312,47 @@
         return this.data[this.currentIndex];
     }
 
+    AnswerCard.prototype.checkAnswers = function () {
+        debugger;
+        if (this.display.check_answers) {
 
+            if (this.currentIndex + 1 >= this.data.length) {
+                this.createFinished();
+                return;
+
+            } else {
+                this.container.find('.grade').remove();
+                this.hideButtonMessage();
+                this.setButtonText(this.language.ok);
+            }
+            //下一题
+            this.createNext();
+        }
+    }
+
+    AnswerCard.prototype.answerQuestion = function () {
+        if (this.display.answer) {
+            this.markingQuestion(this.currentIndex);
+
+            if (this.getCurrentQuestion().selected.length === 0) {
+                this.showButtonMessage(this.language.no_choice);
+                return;
+            }
+            this.hideButtonMessage();
+
+            if (this.currentIndex + 1 >= this.data.length) {
+                //评分界面
+                this.createGrade();
+                this.display.answer = false;
+                this.display.check_answers = true;
+                this.currentIndex = -1;
+                this.setButtonText(this.language.check_answers);
+            } else {
+                //下一题
+                this.createNext();
+            }
+        }
+    }
 
 
     var methods = {
@@ -305,27 +377,24 @@
                 //绑定问题选项事件
                 $elem.on('click', '.question-option', function () {
                     var $elem = $(this);
+                    if (answercard.display.check_answers) {
+                        return false;
+                    }
                     answercard.toggleQuestionOption($elem);
                 });
 
                 //绑定按钮事件
                 $elem.on('click', '.button-ok', function () {
 
-                    answercard.getQuestionSelectedOption();
-                    answercard.markingQuestion(answercard.currentIndex);
-
-                    if (answercard.getCurrentQuestion().selected.length === 0) {
-                        answercard.showButtonMessage(answercard.language['no_choice']);
-                    } else {
-                        answercard.hideButtonMessage();
-                        if (answercard.currentIndex + 1 >= answercard.data.length) {
-                            //评分界面
-                            answercard.createGrade();
-                        } else {
-                            //下一题
-                            answercard.createNext();
-                        }
+                    if (answercard.display.answer) {
+                        //答题
+                        answercard.answerQuestion();
+                    } else if (answercard.display.check_answers) {
+                        //查看答案
+                        answercard.checkAnswers();
                     }
+
+                    $(document).scrollTop(0);
                 })
 
             });
