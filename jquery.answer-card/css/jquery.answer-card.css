@@ -6,7 +6,7 @@
     padding: 20px 0;
     font-family: "Simsun", "微软雅黑", "黑体", "宋体", sans-serif;
     -webkit-user-select: none;
-    -webkit-tap-highlight-color: rgba(200,200,200,0);
+    -webkit-tap-highlight-color: rgba(200, 200, 200, 0);
 }
 
 .answer-card-container header .title {
@@ -24,6 +24,8 @@
     /* line-height: 36px; */
     min-height: 280px;
     font-size: 2em;
+    position: relative;
+    ;
 }
 
 .answer-card-container .question-subject {
@@ -32,6 +34,17 @@
 
 .answer-card-container .question-subject>.question-type {
     font-weight: normal;
+}
+
+.answer-card-container .question-statistics {
+    position: absolute;
+    right: 2em;
+    top: .5em;
+}
+
+.answer-card-container .no-question {
+    font-size: 5em;
+    text-align: center;
 }
 
 .answer-card-container .question-option .option-check {

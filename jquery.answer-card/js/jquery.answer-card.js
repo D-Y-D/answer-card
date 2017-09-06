@@ -27,11 +27,14 @@
             '9f.png',
         ];
         //随机生成
-        this.random = this.random || false;
+        this.random = opt.random || false;
         //范围（个数）
-        this.range = this.range || -1;
+        this.range = opt.range || null;
         //题库数据
-        this.data = opt.data;
+        (function () {
+            this.data = opt.data;
+            this.getRangeQuestions();
+        }).call(this);
         //主题
         this.title = opt.title;
         //当前的序号
@@ -75,7 +78,8 @@
             'multi': '多选',
             'right_answers': '正确答案',
             'yes': "是",
-            'no': "否"
+            'no': "否",
+            'no_question': "题库中没有考题"
         };
         //选项序号
         this.index = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
@@ -86,11 +90,15 @@
     AnswerCard.prototype.create = function () {
         var container = this.container,
             title = this.createHeader(),
-            question = this.createQuestion();
-        explain = this.createExplain(),
+            question = this.createQuestion(),
+            explain = this.createExplain(),
             btn = this.createButton();
 
-        container.append(['<div>', title, question, explain, btn, '</div>'].join(''));
+        if (this.data.length === 0) {
+            container.append(['<div>', title, '<p class="no-question">', this.language.no_question, '</p>', '</div>'].join(''));
+        } else {
+            container.append(['<div>', title, question, explain, btn, '</div>'].join(''));
+        }
     }
 
     AnswerCard.prototype.createNext = function () {
@@ -116,10 +124,15 @@
     }
 
     AnswerCard.prototype.createQuestion = function () {
+
+        if (!this.data || this.data.length === 0) {
+            return "";
+        }
         var data = this.data,
             question,
             item = $.extend(true, {}, this._opt, data[this.currentIndex]),
-            type = this.language[item.type || 'radio'];
+            type = this.language[item.type || 'radio'],
+            index = this.currentIndex + 1;
 
         data[this.currentIndex] = item;
 
@@ -129,7 +142,13 @@
 
         question = ['<div class="question">',
             '<div class="question-content">',
-            '<p class="question-subject">', this.currentIndex + 1, '、', '<span class="question-type">[', type, ']</span>', item.question, '</p>',
+            '   <span  class="question-statistics">',
+            '       <span class="question-statistics-index">', index, ' / ', '</span>',
+            '       <span class="question-statistics-total">', this.data.length, '</span>',
+            '   </span>',
+            '   <p class="question-subject">', index, '、',
+            '       <span class="question-type">[', type, ']</span>', item.question,
+            '   </p>',
             this.createQuestionOptions(item),
             '</div>',
             '</div>'
@@ -316,9 +335,9 @@
             self = this;
 
         $elem.find('.quest-option-selected').each(function () {
-            var index = $(this).index();
+            var index = $(this).index('.question-option');
             if (index !== -1) {
-                question.selected.push(self.index[index - 1]);
+                question.selected.push(self.index[index]);
             }
         });
     }
@@ -338,7 +357,7 @@
     }
 
     AnswerCard.prototype.checkAnswers = function () {
-        debugger;
+
         if (this.display.check_answers) {
 
             if (this.currentIndex + 1 >= this.data.length) {
@@ -356,6 +375,7 @@
     }
 
     AnswerCard.prototype.answerQuestion = function () {
+
         if (this.display.answer) {
             this.markingQuestion(this.currentIndex);
 
@@ -391,7 +411,11 @@
 
     AnswerCard.prototype.getRangeQuestions = function () {
 
-        if (!random) {
+        if (this.range && this.random === false) {
+            this.data = this.data.splice(this.range[0], this.range[1]);
+        }
+
+        if (!this.random) {
             return;
         }
 
@@ -400,31 +424,37 @@
             return a - b;
         }
 
+        //iStart到iEnd-1范围内取值
         function getRandom(iStart, iEnd) {
-            var iChoice = iStart - iEnd + 1;
-            return Math.abs(Math.floor(Math.random() * iChoice)) + iStart;
+            var iChoice = iStart - iEnd;
+            return Math.abs(Math.floor(Math.random() * iChoice)) + iStart - 1;
         }
 
         //js实现随机选取n个数字，存入一个数组，并排序
         var questions = [],
-            count = this.range,
+            start = this.range[0] || 0,
+            end = this.range[1] || 10,
+            length = end - start,
             total = this.data.length,
             data = [],
             index;
 
-        for (var i = 0; i < count; i++) {
+        if (total <= length) {
+            return;
+        }
+        for (var i = start; i < end; i++) {
             var index = getRandom(0, total);
             if (questions.indexOf(index) === -1) {
-                questions.push();
+                questions.push(index);
             } else {
                 --i;
                 continue;
             }
         }
 
-        questions.sort(sortNumber);
+        //questions.sort(sortNumber);
 
-        for (var i = 0; i < count; i++) {
+        for (var i = 0, len = questions.length; i < len; i++) {
             data.push(this.data[questions[i]]);
         }
 

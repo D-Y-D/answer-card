@@ -39,6 +39,10 @@ body {
     font-weight: bolder;
 }
 
+.answer-card-container .no-question {
+    color: #ffb;
+}
+
 .answer-card-container .explain-content {
     background: url("../images/red/t_b.png");
     color: #450b0c;
