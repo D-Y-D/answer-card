@@ -1,8 +1,8 @@
 $(function () {
 
-    var s1 = '2017-09-6';
-    var s2 = '2017-09-7';
-
+    var s1 = '2017-10-10';
+    var s2 = '2017-10-29';
+debugger;
     function getDays(start, end) {
         var s1 = new Date(start.replace(/-/g, "/"));
         var s2 = new Date(end.replace(/-/g, "/"));
@@ -16,7 +16,12 @@ $(function () {
     // 每次选取个数
     var number = Math.ceil(data.length / total);
     //今天的日期
-    var today = new Date();
+    var today;
+    if (location.hash && location.hash.length == 11) {
+        today=new Date(location.hash.slice(1));
+    } else {
+        today = new Date();
+    }
     s1 = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var index = getDays(s1, s2) + 1;
 

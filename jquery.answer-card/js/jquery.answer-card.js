@@ -412,7 +412,7 @@
     AnswerCard.prototype.getRangeQuestions = function () {
 
         if (this.range && this.random === false) {
-            this.data = this.data.splice(this.range[0], this.range[1]);
+            this.data = this.data.slice(this.range[0], this.range[1]);
         }
 
         if (!this.random) {
