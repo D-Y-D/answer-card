@@ -2,7 +2,8 @@ $(function () {
 
     var s1 = '2017-10-10';
     var s2 = '2017-10-29';
-debugger;
+    var now;
+
     function getDays(start, end) {
         var s1 = new Date(start.replace(/-/g, "/"));
         var s2 = new Date(end.replace(/-/g, "/"));
@@ -18,12 +19,13 @@ debugger;
     //今天的日期
     var today;
     if (location.hash && location.hash.length == 11) {
-        today=new Date(location.hash.slice(1));
+        today = new Date(location.hash.slice(1));
     } else {
         today = new Date();
     }
-    s1 = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    var index = getDays(s1, s2) + 1;
+
+    now = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var index = getDays(now, s2) + 1;
 
     var range = [0, number];
     var opt = {
@@ -47,6 +49,10 @@ debugger;
 
     if (opt.random) {
         opt.range = [0, 30];
+    }
+
+    if (today < new Date(s1)) {
+        opt.data=[];
     }
 
     $('#answer-card').answercard(opt);
