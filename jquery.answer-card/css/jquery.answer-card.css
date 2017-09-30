@@ -81,6 +81,7 @@
     width: 179px;
     height: 177px;
     opacity: .5;
+    filter:alpha(opacity=50);
 }
 
 .answer-card-container .button-container>.button-msg {

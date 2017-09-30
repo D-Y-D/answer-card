@@ -1,7 +1,20 @@
 html {
     padding: 0;
     background: #EB3F3E url("../images/red/index_bg.png") no-repeat right bottom;
+    background: #E3f09b  no-repeat right bottom;
     background-attachment: fixed;
+}
+
+.index_bg {
+    background: #E3f09b url("../images/red/index_bg.png") no-repeat right bottom;
+    width: 118px;
+    height: 120px;
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+    opacity: .6;
+    filter:alpha(opacity=60);
+    z-index: -1;    
 }
 
 body {
@@ -9,11 +22,11 @@ body {
     margin: 0;
 }
 
-.answer-card-container {
-}
+.answer-card-container {}
 
 .answer-card-container header .title {
     color: #fff;
+    color: #333;
 }
 
 .answer-card-container .question,
@@ -24,6 +37,7 @@ body {
 .answer-card-container .question-content {
     background: url("../images/red/t_w.png");
     color: #FFF;
+    color: #333;
 }
 
 .answer-card-container .question-option .option-check {
@@ -62,6 +76,7 @@ body {
 
 .button-container>.button-msg {
     color: #FFF;
+    color: #d22f28;
 }
 
 .button-container>.button-ok>a {
