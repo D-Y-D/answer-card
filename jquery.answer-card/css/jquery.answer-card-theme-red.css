@@ -2,11 +2,12 @@ html {
     padding: 0;
     background: #EB3F3E url("../images/red/index_bg.png") no-repeat right bottom;
     background: #E3f09b no-repeat right bottom;
+    background-color: #FFFCDB;
     background-attachment: fixed;
 }
 
 .index_bg {
-    background: #E3f09b url("../images/red/index_bg.png") no-repeat right bottom;
+    background: url("../images/red/index_bg.png") no-repeat right bottom;
     width: 118px;
     height: 120px;
     position: absolute;
@@ -35,7 +36,12 @@ body {
 }
 
 .answer-card-container .question-content {
-    background: url("../images/red/t_w.png");
+    /* background: url("../images/red/t_w.png"); */
+    /* background-color: #E3f09b;
+    background-color: #F8F4C4;
+    background-color: #F7F4D2;
+    background-color: #FAF7D7; */
+    background-color: #F7F4D2;/*2*/
     color: #FFF;
     color: #333;
 }
@@ -54,7 +60,7 @@ body {
 }
 
 .answer-card-container .no-question {
-    color: #ffb;
+    color: #E27C28;
 }
 
 .answer-card-container .explain-content {
