@@ -4,33 +4,41 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>答题卡</title>
-	<meta content='target-densitydpi=device-dpi, width=640' name='viewport'>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+
+
+	<!-- <meta content='target-densitydpi=device-dpi, width=640' name='viewport'>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="white">
 	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport"content="width=device-width, initial-scale=1"/> -->
 	<!-- <link href="style/css.css" rel="stylesheet" type="text/css" /> -->
 	<link href="jquery.answer-card/css/jquery.answer-card.css" rel="stylesheet" type="text/css" />
 	<link href="jquery.answer-card/css/jquery.answer-card-theme-red.css" rel="stylesheet" type="text/css" />
 
 	<script>
 		/*不同分辨率手机加载*/
-		var userScalable = "no";
-		var ins = "";
-		(function () {
-			if (window.devicePixelRatio === 1.5) {
-				userScalable = "yes";
-				ins = "initial-scale=0.5"
-			}
-			var text = "<meta content='" + ins + ", target-densitydpi=device-dpi, width=640,user-scalable=" + userScalable +
-				"' name='viewport'>";
-			document.write(text);
-		})();
+		// var userScalable = "no";
+		// var ins = "";
+		// (function () {
+		// 	if (window.devicePixelRatio === 1.5) {
+		// 		userScalable = "yes";
+		// 		ins = "initial-scale=0.5"
+		// 	}
+		// 	var text = "<meta content='" + ins + ", target-densitydpi=device-dpi, width=640,user-scalable=" + userScalable +
+		// 		"' name='viewport'>";
+		// 	document.write(text);
+		// })();
 	</script>
 </head>
 
 <body>
 	<div class="" id="answer-card">
 	</div>
+	<div class='index_bg'></div>
 
 	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="jquery.answer-card/js/jquery.answer-card.js"></script>
