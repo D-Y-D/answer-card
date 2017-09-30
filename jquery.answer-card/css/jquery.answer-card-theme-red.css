@@ -1,7 +1,7 @@
 html {
     padding: 0;
     background: #EB3F3E url("../images/red/index_bg.png") no-repeat right bottom;
-    background: #E3f09b  no-repeat right bottom;
+    background: #E3f09b no-repeat right bottom;
     background-attachment: fixed;
 }
 
@@ -13,8 +13,8 @@ html {
     right: 2em;
     bottom: 2em;
     opacity: .6;
-    filter:alpha(opacity=60);
-    z-index: -1;    
+    filter: alpha(opacity=60);
+    z-index: -1;
 }
 
 body {
@@ -83,4 +83,20 @@ body {
     background: #FEC71F;
     color: #d22f28;
     border-radius: 10px;
+}
+
+.stamp {
+    display: none;
+}
+
+.stamp-text.right {
+    color: #43B449;
+}
+
+.stamp-text.wrong {
+    color: #d22f28;
+}
+
+.answer-card-container .explain-content {
+    min-height: 120px;
 }

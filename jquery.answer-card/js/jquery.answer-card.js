@@ -79,7 +79,11 @@
             'right_answers': '正确答案',
             'yes': "是",
             'no': "否",
-            'no_question': "题库中没有考题"
+            'no_question': "题库中没有考题",
+            'stamp-text': {
+                right: '回答正确',
+                wrong: '回答错误'
+            }
         };
         //选项序号
         this.index = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
@@ -203,6 +207,7 @@
 
         explain = ['<div class="explain">',
             '<div class="explain-content">',
+            '<p class="stamp-text ' + stamp + '" >' + this.language['stamp-text'][stamp] + '</p>',
             '<p class="explain-subject">', this.language.right_answers, '： ', item.result.join('、'), '</p>',
             this.createExplainContent(item),
             '<span class="stamp ', stamp, '"></span>',
