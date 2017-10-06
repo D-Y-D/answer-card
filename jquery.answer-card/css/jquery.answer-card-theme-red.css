@@ -8,8 +8,10 @@ html {
 
 .index_bg {
     background: url("../images/red/index_bg.png") no-repeat right bottom;
-    width: 118px;
-    height: 120px;
+    min-width: 118px;
+    min-height: 120px;
+    width:30%;
+    height:20%;
     position: absolute;
     right: 2em;
     bottom: 2em;
@@ -41,7 +43,8 @@ body {
     background-color: #F8F4C4;
     background-color: #F7F4D2;
     background-color: #FAF7D7; */
-    background-color: #F7F4D2;/*2*/
+    background-color: #F7F4D2;
+    /*2*/
     color: #FFF;
     color: #333;
 }
