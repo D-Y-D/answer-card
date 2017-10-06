@@ -105,14 +105,18 @@
 }
 
 .answer-card-container .grade-img {
-    padding: 3em 2em;
+    /* padding: 3em 2em; */
+    width: 90%;
+    margin: auto;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 .answer-card-container .grade-img>img {
     display: inline-block;
-    padding: 1em;
-    height: 10em;
-    width: 6em;
+    padding: 2%;
+    height: 20%;
+    width: 28%;
 }
 
 .answer-card-container .finish-container>img {
