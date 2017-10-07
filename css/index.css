@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: #E3f09b url("../images/index-bg-welcome.png") no-repeat left top;
+    background: #FFFCDB url("../images/index-bg-welcome.png") no-repeat left top;
     overflow: hidden;
     background-size: cover;
 }
@@ -15,7 +15,7 @@
     font-weight: bold;
     font-size: 4em;
     text-align: center;
-    margin-top: 60%;
+    margin-top: 55%;
     /* 
     background: url(../images/index_bg_text.jpg);
     background-clip: text;
