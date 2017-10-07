@@ -1,0 +1,59 @@
+.index_bg_welcome {
+    position: absolute;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #FFFCDB url("../images/index-bg-welcome.png") no-repeat left top;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.index_text_welcome {
+    color: #CC2F2F;
+    font-weight: bold;
+    font-size: 4em;
+    text-align: center;
+    margin-top: 55%;
+    /* 
+    background: url(../images/index_bg_text.jpg);
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: aitf 20s linear infinite;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: aitf 20s linear infinite;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden; */
+}
+
+
+/* Animate Background Image */
+
+@keyframes aitf {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@-webkit-keyframes aitf {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.index_text_welcome>p {
+    margin: 0;
+    /* font-family: "华文行楷", "微软雅黑", "黑体", "宋体", "Simsun", sans-serif; */
+    font-family: "Microsoft YaHei","黑体","宋体",sans-serif;
+}

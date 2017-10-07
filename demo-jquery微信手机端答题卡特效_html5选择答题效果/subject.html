@@ -1,0 +1,544 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery微信手机端答题卡特效_html5选择答题效果</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta name="author" content="" />
+<meta name="renderer" content="webkit">
+<meta content='target-densitydpi=device-dpi, width=640' name='viewport'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+<meta name="format-detection" content="telephone=no">  
+<link href="style/css.css"rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script>
+	/*不同分辨率手机加载*/
+	var userScalable = "no";
+	var ins = "";
+	(function () {
+		if (window.devicePixelRatio === 1.5) {
+			userScalable = "yes";
+			ins = "initial-scale=0.5"
+		}
+		var text = "<meta content='" + ins + ", target-densitydpi=device-dpi, width=640,user-scalable=" + userScalable + "' name='viewport'>";
+		document.write(text);
+	})();
+</script>
+</head>
+<body>
+<div id="answer" class="w640">
+	<header>
+		<div class="hm_icon"><a href="index.html"><img src="images/home_icon.png" alt=""></a></div>
+		<div class="title">               
+		</div>
+	</header>
+	<div id="q1">           
+		<div class="content_tl"> 
+			<div class="content_tl_img"><img src="images/pd01.jpg" /></div>    
+			<p class="content_tl_t">1、在党内搞团团伙伙、结党营私、拉帮结派、培植私人势力或者通过搞利益交换、为自己营造声势等活动捞取政治资本的，给予严重警告或者撤销党内职务处分；情节严重的给予留党察看或者开除党籍处分。</p>
+			<p class="p_left"><span><input id="rd1_1" name="rd1" type="radio" value="true"></span><label for="rd1_1">正确</label></p>
+			<p class="p_left"><span><input id="rd1_2" name="rd1" type="radio" value="false"></span><label for="rd1_2">错误</label></p>                
+			<div class="clear"></div>
+		 </div>
+		<div id="msg1" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b1" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a1" style="display:none;">
+		<div class="content_tljd">
+			<span id="r1" class="right" style="display:none;"></span>
+			<span id="w1" class="wrong" style="display:none;"></span>
+			<p>正确解答：根据《中国共产党纪律处分条例》<font class="ys">第五十二条</font>规定，在党内搞团团伙伙、结党营私、拉帮结派、培植私人势力或者通过搞利益交换、为自己营造声势等活动捞取政治资本的，给予严重警告或者撤销党内职务处分；情节严重的，给予留党察看或者开除党籍处分。 </p>
+		</div>
+		<div class="enter_btn"><a id="next1" href="#">下一题</a></div>
+	</div>
+
+	<div id="q2" style="display:none;">
+		<div class="content_tl">
+			<div class="content_tl_img"><img src="images/pd02.jpg"  /></div>    
+			<p class="content_tl_t">2、利用职权或者职务上的影响操办婚丧喜庆事宜，在社会上造成不良影响的，给予警告或者严重警告处分;情节严重的，给予开除党籍处分。</p>
+			<p class="p_left"><span><input id="rd2_1" name="rd2" type="radio" value="true"></span><label for="rd2_1">正确</label></p>
+			<p class="p_left"><span><input id="rd2_2" name="rd2" type="radio" value="false"></span><label for="rd2_2">错误</label></p>               
+			<div class="clear"></div>
+		</div>
+		<div id="msg2" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b2" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a2" style="display:none;">
+		<div class="content_tljd">
+			<span id="r2" class="right" style="display:none;"></span>
+			<span id="w2" class="wrong" style="display:none;"></span>
+			<p>正确解答：根据《中国共产党纪律处分条例》<font class="ys">第八十五条</font>规定，利用职权或者职务上的影响操办婚丧喜庆事宜，在社会上造成不良影响的，给予警告或者严重警告处分；情节严重的，给予撤销党内职务处分。</p>
+		</div>
+		<div class="enter_btn"><a id="next2" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q3" style="display:none;">
+		<div class="content_tl">
+			<div class="content_tl_img"><img src="images/pd03.jpg" /></div>    
+			<p class="content_tl_t">3、组织迷信活动的属于违反组织纪律行为，给予撤销党内职务或者留党察看处分。</p>
+			<p class ="p_left"><span><input id="rd3_1" name="rd3" type="radio" value="false"></span><label for="rd3_1">正确</label></pclass>
+			<p class="p_left"><span><input id="rd3_2" name="rd3" type="radio" value="true"></span><label for="rd3_2">错误</label></p>               
+			<div class="clear"></div>
+		</div>
+		<div id="msg3" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b3" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a3" style="display:none;">
+		<div class="content_tljd">
+			<span id="r3" style="display:none;" class="right"></span>
+			<span id="w3" style="display:none;" class="wrong"></span>
+			<p>正确解答：根据《中国共产党纪律处分条例》<font class="ys">第五十八条</font>规定，组织迷信活动的，给予撤销党内职务或者留党察看处分；情节严重的，给予开除党籍处分。</p>
+		</div>
+		<div class="enter_btn"><a id="next3" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q4" style="display:none;">
+		<div class="content_tl">
+			<div class="content_tl_img"><img src="images/dx01.jpg" /></div>
+			<p class="subject_t">4、党员以组织讲座论坛、报告会、座谈会等方式，反对党的重大方针政策，造成严重不良影响的，给予____处分。</p>
+			<p class="p_left"><span><input id="rd4_1" name="rd4" type="radio" value="false"></span><label for="rd4_1">A.留党察看</label></p>
+			<p class="p_left"><span><input id="rd4_2" name="rd4" type="radio" value="false"></span><label for="rd4_2">B.撤销党内职务</label></p>
+			<p class="p_left"><span><input id="rd4_3" name="rd4" type="radio" value="true"></span><label for="rd4_3">C.开除党籍</label></p>
+			<div class="clear"></div>
+		 </div>
+		<div id="msg4" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b4" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a4" style="display:none;">
+		<div class="content_tljd">
+			<span id="r4" style="display:none;" class="right"></span>
+			<span id="w4" style="display:none;" class="wrong"></span>
+			<p>正确解答：根据《中国共产党纪律处分条例》<font class="ys">第四十五条</font>规定，通过信息网络、广播、电视、报刊、书籍、讲座、论坛、报告会、座谈会等方式，公开发表坚持资产阶级自由化立场、反对四项基本原则，反对党的改革开放决策的文章、演说、宣言、声明等的，给予<font class="ys">开除党籍</font>处分。</p>
+		</div>
+		<div class="enter_btn"><a id="next4" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q5" style="display:none;">
+		<div class="content_tl">
+			<div class="content_tl_img"><img src="images/dx02.jpg"  /></div>
+			<p class="content_tl_t">5、党员在国(境)外、外国驻华使(领)馆申请政治避难，或者违纪后逃往国(境)外、外国驻华使(领)馆的，应给予其____处分。</p>
+			<p class="p_left"><span><input id="rd5_1" name="rd5" type="radio" value="false"></span><label for="rd5_1">A.严重警告</label></p>
+			<p class="p_left"><span><input id="rd5_2" name="rd5" type="radio" value="true"></span><label for="rd5_2">B.开除党籍</label></p>
+			<p class="p_left"><span><input id="rd5_3" name="rd5" type="radio" value="false"></span><label for="rd5_3">C.撤销党内职务</label></p>
+			<div class="clear"></div>
+		</div>
+		<div id="msg5" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b5" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a5" style="display:none;">
+		<div class="content_tljd">
+			<span id="r5" style="display:none;" class="right"></span>
+			<span id="w5" style="display:none;" class="wrong"></span>
+			<p>正确解答：根据《中国共产党纪律处分条例》<font class="ys">第五十九条</font>规定，在国（境）外、外国驻华使（领）馆申请政治避难，或者违纪后逃往国（境）外、外国驻华使（领）馆的，给予<font class="ys">开除党籍</font>处分。</p>
+		</div>
+		<div class="enter_btn"><a id="next5" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q6" style="display:none;">
+		<div class="content_tl">
+			<div class="content_tl_img"><img src="images/dx03.jpg" /></div>
+			<p class="content_tl_t">6、党员在考试、录取工作中，有泄露试题、考场舞弊、涂改考卷、违规录取等违反有关规定行为且情节严重的，给予____处分。</p>
+			<p class="p_left"><span><input id="rd6_1" name="rd6" type="radio" value="false"></span><label for="rd6_1">A.严重警告</label></p>
+			<p class="p_left"><span><input id="rd6_2" name="rd6" type="radio" value="false"></span><label for="rd6_2">B.撤销党内职务</label></p>
+			<p class="p_left"><span><input id="rd6_3" name="rd6" type="radio" value="true"></span><label for="rd6_3">C.开除党籍</label></p>
+			<div class="clear"></div>
+		</div>
+		<div id="msg6" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b6" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a6" style="display:none;">
+		<div class="content_tljd">
+			<span id="r6" style="display:none;" class="right"></span>
+			<span id="w6" style="display:none;" class="wrong"></span>
+			<p>正确解答：根据《中国共产党纪律处分条例》<font class="ys">第一百二十一条</font>规定，在考试、录取工作中，有泄露试题、考场舞弊、涂改考卷、违规录取等违反有关规定行为的，给予警告或者严重警告处分；情节较重的，给予撤销党内职务或者留党察看处分；情节严重的，给予<font class="ys">开除党籍</font>处分。</p>
+		</div>
+		<div class="enter_btn"><a id="next6" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q7" style="display:none;">
+		<div class="content_tl">
+			<div class="content_tl_img"><img src="images/dx04.jpg" /></div>
+			<p class="content_tl_t">7、组织、利用宗族势力对抗党和政府，妨碍党和国家的方针政策以及决策部署的实施，或者破坏党的基层组织建设的，对策划者、组织者和骨干分子，给予____处分。</p>
+			<p class="p_left"><span><input id="rd7_1" name="rd7" type="radio" value="false"></span><label for="rd7_1">A.严重警告</label></p>
+			<p class="p_left"><span><input id="rd7_2" name="rd7" type="radio" value="false"></span><label for="rd7_2">B.撤销党内职务</label></p>
+			<p><span><input id="rd7_3" name="rd7" type="radio" value="true"></span><label for="rd7_3">C.留党察看或者开除党籍</label></p>
+			<div class="clear"></div>
+		</div>
+		<div id="msg7" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b7" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a7" style="display:none;">
+		<div class="content_tljd">
+			<span id="r7" style="display:none;" class="right"></span>
+			<span id="w7" style="display:none;" class="wrong"></span>
+			<p>正确解答：根据《中国共产党纪律处分条例》<font class="ys">第五十六条</font>规定，组织、利用宗族势力对抗党和政府，妨碍党和国家的方针政策以及决策部署的实施，或者破坏党的基层组织建设的，对策划者、组织者和骨干分子，给予<font class="ys">留党察看或者开除党籍</font>处分。</p>
+		</div>
+		<div class="enter_btn"><a id="next7" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q8" style="display:none;">
+		<div class="content_tl">
+			<div class="content_tl_img"><img src="images/dxt01.jpg" /></div>
+			<p class="content_tl_t">8、（多选）王某不顾群众反对，盲目铺摊子、上项目，给国家、集体和群众带了巨大的损失和伤害，造成了非常严重的后果。应给王某会受到怎样的处分？</p>
+			<p class="p_left"><span><input id="cb8_1" name="cb8" type="checkbox" value="flase"></span><label for="cb8_1">A.警告</label></p>
+			<p class="p_left"><span><input id="cb8_2" name="cb8" type="checkbox" value="true"></span><label for="cb8_2">B.留党察看</label></p>
+			<p class="p_left"><span><input id="cb8_3" name="cb8" type="checkbox" value="true"></span><label for="cb8_3">C.撤销党内职务</label></p>
+			<div class="clear"></div>
+		</div>
+		<div id="msg8" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b8" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a8" style="display:none;">
+		<div class="content_tljd">
+			<span id="r8" style="display:none;" class="right"></span>
+			<span id="w8" style="display:none;" class="wrong"></span>
+			<p>正确解答：根据《中国共产党纪律处分条例》<font class="ys">第一百零九条</font>规定，不顾群众意愿，盲目铺摊子、上项目，致使国家、集体或者群众财产和利益遭受较大损失的，对直接责任者和领导责任者，给予警告或者严重警告处分；情节严重的，给予<font class="ys">撤销党内职务或者留党察看</font>处分。</p>
+			
+		</div>
+		<div class="enter_btn"><a id="next8" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q9" style="display:none;">
+		<div class="content_tl">         
+			<div class="content_tl_img"><img src="images/dxt02.jpg"  /></div>      
+			<p class="content_tl_t">9.（多选）遇到国家财产和群众生命财产受到严重威胁时，有能力救却袖手旁观，事不关己高高挂起，情节较重，将受到怎样的处分？</p>
+			<p class="p_left"><span><input id="cb9_1" type="checkbox" value="true" name="cb9" /></span><label for="cb9_1">A.警告</label></p>
+			<p class="p_left"><span><input id="cb9_2" type="checkbox" value="true" name="cb9" /></span><label for="cb9_2">B.严重警告</label></p>
+			<p class="p_left"><span><input id="cb9_3" type="checkbox" value="true" name="cb9" /></span><label for="cb9_3">C.撤销党内职务</label></p>
+			<div class="clear"></div>
+		</div>
+		<div id="msg9" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b9" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a9" style="display:none;">
+		<div class="content_tljd">
+			<span id="r9" style="display:none;" class="right"></span>
+			<span id="w9" style="display:none;" class="wrong"></span>
+			<p>正确解答：根据《中国共产党纪律处分条例》<font class="ys">第一百一十条</font>规定，遇到国家财产和群众生命财产受到严重威胁时，能救而不救，情节较重的，给予<font class="ys">警告、严重警告或者撤销党内职务</font>处分；情节严重的，给予留党察看或者开除党籍处分。</p>
+		</div>
+		<div class="enter_btn"><a id="next9" href="javascript:void(0);">下一题</a></div>
+	</div>
+
+	<div id="q10" style="display:none;">
+		<div class="content_tl">
+			<div class="content_tl_img"><img src="images/dxt03.jpg"  /></div>
+			<p class="content_tl_t">10.（多选）某村违反相关规定，刻意隐瞒党务、政务、村务，剥夺了村民的知情权，给村民造成了巨大的损失，直接责任者和领导者将会受到怎样的处分？</p>
+			<p class="p_left"><span><input id="cb10_1" type="checkbox" value="false" name="cb10" /></span><label for="cb10_1">A.警告</label></p>
+			<p class="p_left"><span><input id="cb10_2" type="checkbox" value="true" name="cb10" /></span><label for="cb10_2">B.撤销党内职务</label></p>
+			<p class="p_left"><span><input id="cb10_3" type="checkbox" value="true" name="cb10" /></span><label for="cb10_3">C.留党察看</label></p>
+			<div class="clear"></div>
+		</div>
+		<div id="msg10" class="no_choice" style="display:none;">您还没选择！</div>
+		<div class="enter_btn"><a id="b10" href="javascript:void(0);">确定</a></div>
+	</div>
+	<div id="a10" style="display:none;">
+		<div class="content_tljd">
+			<span id="r10" style="display:none;" class="right"></span>
+			<span id="w10" style="display:none;" class="wrong"></span>
+			<p>正确解答：根据《中国共产党纪律处分条例》<font class="ys">第一百一十一条</font>规定，不按照规定公开党务、政务、厂务、村（居）务等，侵犯群众知情权，对直接责任者和领导责任者，情节较重的，给予警告或者严重警告处分；情节严重的，给予<font class="ys">撤销党内职务或者留党察看</font>处分。</p>
+		</div>
+		<div class="enter_btn"><a id="next10" href="javascript:void(0);">查看结果</a></div>
+	</div>
+
+</div>
+<div id="score" class="w640" style="display:none;">
+	<header>
+		<div id="fs"></div>
+	</header>
+
+	<div class="hm_text02"><img src="images/text02.png"  alt=""></div>
+	<div class="hm_btn">
+		<div class="btn_bg"><a href="chapter.html" >中国共产党章程</a></div>
+		<div class="btn_bg"><a href="subject.html" >中国共产党纪律处分条例</a></div>
+		<div class="btn_bg" style="display:none;"><a href="#">中国共产党廉洁自律准则</a></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function () {
+		a1 = a2 = a3 = a4 = a5 = a6 = a7 = a8 = a9 = a10 = 0;
+		$("#b1").click(function () {              
+			var rl1 = $('#q1 input:radio[name="rd1"]:checked').val();
+			if (rl1 == null) {
+				$("#msg1").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q1").fadeOut(100);', 1);
+				setTimeout('$("#a1").fadeIn(1000);', 100);
+				if (rl1 == "true") {
+					a1 = 1;
+					setTimeout('$("#r1").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w1").slideDown()', 500);
+				}
+			}
+		});
+		$("#next1").click(function () {
+			setTimeout('$("#a1").fadeOut(100);', 1);
+			setTimeout('$("#q2").fadeIn(1000);', 100);
+		});
+
+		$("#b2").click(function () {
+			var rl2 = $('#q2 input:radio[name="rd2"]:checked').val();
+			if (rl2 == null) {
+				$("#msg2").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q2").fadeOut(100);', 1);
+				setTimeout('$("#a2").fadeIn(1000);', 100);
+				if (rl2 == "true") {
+					a2 = 1;
+					setTimeout('$("#r2").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w2").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next2").click(function () {
+			setTimeout('$("#a2").fadeOut(100);', 1);
+			setTimeout('$("#q3").fadeIn(1000);', 100);
+		});
+
+		$("#b3").click(function () {
+			var rl3 = $('#q3 input:radio[name="rd3"]:checked').val();
+			if (rl3 == null) {
+				$("#msg3").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q3").fadeOut(100);', 1);
+				setTimeout('$("#a3").fadeIn(1000);', 100);
+				if (rl3 == "true") {
+					a3 = 1;
+					setTimeout('$("#r3").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w3").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next3").click(function () {
+			setTimeout('$("#a3").fadeOut(100);', 1);
+			setTimeout('$("#q4").fadeIn(1000);', 100);
+		});
+
+		$("#b4").click(function () {
+			var rl4 = $('#q4 input:radio[name="rd4"]:checked').val();
+			if (rl4 == null) {
+				$("#msg4").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q4").fadeOut(100);', 1);
+				setTimeout('$("#a4").fadeIn(1000);', 100);
+				if (rl4 == "true") {
+					a4 = 1;
+					setTimeout('$("#r4").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w4").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next4").click(function () {
+			setTimeout('$("#a4").fadeOut(100);', 1);
+			setTimeout('$("#q5").fadeIn(1000);', 100);
+		});
+
+		$("#b5").click(function () {
+			var rl5 = $('#q5 input:radio[name="rd5"]:checked').val();
+			if (rl5 == null) {
+				$("#msg5").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q5").fadeOut(100);', 1);
+				setTimeout('$("#a5").fadeIn(1000);', 100);
+				if (rl5 == "true") {
+					a5 = 1;
+					setTimeout('$("#r5").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w5").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next5").click(function () {
+			setTimeout('$("#a5").fadeOut(100);', 1);
+			setTimeout('$("#q6").fadeIn(1000);', 100);
+		});
+
+		$("#b6").click(function () {
+			var rl6 = $('#q6 input:radio[name="rd6"]:checked').val();
+			if (rl6 == null) {
+				$("#msg6").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q6").fadeOut(100);', 1);
+				setTimeout('$("#a6").fadeIn(1000);', 100);
+				if (rl6 == "true") {
+					a6 = 1;
+					setTimeout('$("#r6").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w6").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next6").click(function () {
+			setTimeout('$("#a6").fadeOut(100);', 1);
+			setTimeout('$("#q7").fadeIn(1000);', 100);
+		});
+
+
+		$("#b7").click(function () {
+			var rl7 = $('#q7 input:radio[name="rd7"]:checked').val();
+			if (rl7 == null) {
+				$("#msg7").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q7").fadeOut(100);', 1);
+				setTimeout('$("#a7").fadeIn(1000);', 100);
+				if (rl7 == "true") {
+					a7 = 1;
+					setTimeout('$("#r7").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w7").slideDown()()', 500);
+				}
+			}
+		});
+		$("#next7").click(function () {
+			setTimeout('$("#a7").fadeOut(100);', 1);
+			setTimeout('$("#q8").fadeIn(1000);', 100);
+		});
+
+
+		$("#b8").click(function () {
+			var cbl8 = $('#q8 input:checkbox[name="cb8"][checked]');
+			if (cbl8.length == 0) {
+				$("#msg8").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q8").fadeOut(100);', 1);
+				setTimeout('$("#a8").fadeIn(1000);', 100);
+				var checkList = new Array();
+				var rightList = new Array("cb8_2", "cb8_3");
+				var rightFlag = false;
+				if (cbl8.length == rightList.length) {
+					cbl8.each(function () {
+						checkList.push($(this).attr("id"));
+					});
+				}
+				if (checkList.sort().toString() == rightList.sort().toString()) {
+					rightFlag = true;
+				}
+				if (rightFlag) {
+					a8 = 1;
+					setTimeout('$("#r8").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w8").slideDown()', 500);
+				}
+			}
+		});
+		$("#next8").click(function () {
+			setTimeout('$("#a8").fadeOut(100);', 1);
+			setTimeout('$("#q9").fadeIn(1000);', 100);
+		});
+
+		$("#b9").click(function () {
+			var cbl9 = $('#q9 input:checkbox[name="cb9"][checked]');
+			if (cbl9.length == 0) {
+				$("#msg9").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q9").fadeOut(100);', 1);
+				setTimeout('$("#a9").fadeIn(1000);', 100);
+				var checkList = new Array();
+				var rightList = new Array("cb9_1", "cb9_2", "cb9_3");
+				var rightFlag = false;
+				if (cbl9.length == rightList.length) {
+					cbl9.each(function () {
+						checkList.push($(this).attr("id"));
+					});
+				}
+				if (checkList.sort().toString() == rightList.sort().toString()) {
+					rightFlag = true;
+				}
+				if (rightFlag) {
+					a9 = 1;
+					setTimeout('$("#r9").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w9").slideDown()', 500);
+				}
+			}
+		});
+		$("#next9").click(function () {
+			setTimeout('$("#a9").fadeOut(100);', 1);
+			setTimeout('$("#q10").fadeIn(1000);', 100);
+		});
+
+		$("#b10").click(function () {
+			var cbl10 = $('#q10 input:checkbox[name="cb10"][checked]');
+			if (cbl10.length == 0) {
+				$("#msg10").fadeIn(500);
+			}
+			else {
+				setTimeout('$("#q10").fadeOut(100);', 1);
+				setTimeout('$("#a10").fadeIn(1000);', 100);
+				var checkList = new Array();
+				var rightList = new Array("cb10_2", "cb10_3");
+				var rightFlag = false;
+				if (cbl10.length == rightList.length) {
+					cbl10.each(function () {
+						checkList.push($(this).attr("id"));
+					});
+				}
+				if (checkList.sort().toString() == rightList.sort().toString()) {
+					rightFlag = true;
+				}
+				if (rightFlag) {
+					a10 = 1;
+					setTimeout('$("#r10").slideDown()', 500);
+				}
+				else {
+					setTimeout('$("#w10").slideDown()', 500);
+				}
+			}
+		});
+		$("#next10").click(function () {
+			setTimeout('$("#answer").fadeOut(100);', 1);
+			setTimeout('$("#score").fadeIn(1000);', 100);
+
+			sc = a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10;
+			if (sc == 0) {
+				$('#fs').addClass("f0");
+			} else if (sc == 1) {
+				$('#fs').addClass("f10");
+			} else if (sc == 2) {
+				$('#fs').addClass("f20");
+			} else if (sc == 3) {
+				$('#fs').addClass("f30");
+			} else if (sc == 4) {
+				$('#fs').addClass("f40");
+			} else if (sc == 5) {
+				$('#fs').addClass("f50");
+			} else if (sc == 6) {
+				$('#fs').addClass("f60");
+			} else if (sc == 7) {
+				$('#fs').addClass("f70");
+			} else if (sc == 8) {
+				$('#fs').addClass("f80");
+			} else if (sc == 9) {
+				$('#fs').addClass("f90");
+			} else if (sc == 10) {
+				$('#fs').addClass("f100");
+			}
+		});
+	});
+</script>
+</body>
+</html>
