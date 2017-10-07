@@ -11,27 +11,24 @@
 }
 
 .index_text_welcome {
-    background: url(../images/index_bg_text.jpg);
-    color: red;
+    color: #CC2F2F;
     font-weight: bold;
     font-size: 4em;
     text-align: center;
     margin-top: 60%;
+    /* 
+    background: url(../images/index_bg_text.jpg);
     background-clip: text;
-    /* Animate Background Image */
     text-fill-color: transparent;
     animation: aitf 20s linear infinite;
-    /* Activate hardware acceleration for smoother animations */
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    /* Animate Background Image */
     -webkit-text-fill-color: transparent;
     -webkit-animation: aitf 20s linear infinite;
-    /* Activate hardware acceleration for smoother animations */
     -webkit-transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; */
 }
 
 
