@@ -59,10 +59,10 @@ $(function () {
 
     window.onload = function () {
 
-        setTimeout(function () {
-            $(".index_bg_welcome").fadeOut(1000, function () {
-                $(".index_bg_welcome").remove();
-            });
-        }, 2000);
+        // setTimeout(function () {
+        //     $(".index_bg_welcome").fadeOut(1000, function () {
+        //         $(".index_bg_welcome").remove();
+        //     });
+        // }, 2000);
     }
 });

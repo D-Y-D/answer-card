@@ -13,12 +13,19 @@
 .index_text_welcome {
     background: url(../images/index_bg_text.jpg);
     color: red;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
     font-weight: bold;
     font-size: 4em;
     text-align: center;
     margin-top: 60%;
+    background-clip: text;
+    /* Animate Background Image */
+    text-fill-color: transparent;
+    animation: aitf 20s linear infinite;
+    /* Activate hardware acceleration for smoother animations */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
     /* Animate Background Image */
     -webkit-text-fill-color: transparent;
     -webkit-animation: aitf 20s linear infinite;
@@ -27,18 +34,28 @@
     -webkit-backface-visibility: hidden;
 }
 
+
 /* Animate Background Image */
-@-webkit-keyframes aitf {
+
+@keyframes aitf {
     0% {
-      background-position: 0% 50%;
+        background-position: 0% 50%;
     }
     100% {
-      background-position: 100% 50%;
+        background-position: 100% 50%;
     }
-  }
+}
+
+@-webkit-keyframes aitf {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
 
 .index_text_welcome>p {
     margin: 0;
     font-family: "华文行楷", "微软雅黑", "黑体", "宋体", "Simsun", sans-serif;
 }
-
