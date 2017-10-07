@@ -52,8 +52,17 @@ $(function () {
     }
 
     if (today < new Date(s1)) {
-        opt.data=[];
+        opt.data = [];
     }
 
     $('#answer-card').answercard(opt);
+
+    window.onload = function () {
+
+        setTimeout(function () {
+            $(".index_bg_welcome").fadeOut(1000, function () {
+                $(".index_bg_welcome").remove();
+            });
+        }, 2000);
+    }
 });

@@ -1,0 +1,44 @@
+.index_bg_welcome {
+    position: absolute;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #E3f09b url("../images/index-bg-welcome.png") no-repeat left top;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.index_text_welcome {
+    background: url(../images/index_bg_text.jpg);
+    color: red;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: bold;
+    font-size: 4em;
+    text-align: center;
+    margin-top: 60%;
+    /* Animate Background Image */
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: aitf 20s linear infinite;
+    /* Activate hardware acceleration for smoother animations */
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+}
+
+/* Animate Background Image */
+@-webkit-keyframes aitf {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+.index_text_welcome>p {
+    margin: 0;
+    font-family: "华文行楷", "微软雅黑", "黑体", "宋体", "Simsun", sans-serif;
+}
+
