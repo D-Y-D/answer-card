@@ -3,7 +3,7 @@ $(function () {
     var s1 = '2017-10-10';
     var s2 = '2017-10-29';
     var now;
-debugger;
+
     function getDays(start, end) {
         var s1 = new Date(start.replace(/-/g, "/"));
         var s2 = new Date(end.replace(/-/g, "/"));
