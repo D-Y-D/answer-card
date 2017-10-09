@@ -29,7 +29,7 @@ $(function () {
 
     var range = [0, number];
     var opt = {
-        title: '党建学习',
+        title: '廉洁从业学习',
         imageUrl: './jquery.answer-card/images/red/',
         data: data
     };
