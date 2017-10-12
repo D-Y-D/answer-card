@@ -23,7 +23,7 @@ $(function () {
     } else {
         today = new Date();
         now = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        today=new Date(now);
+        today = new Date(now);
     }
 
     now = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -67,4 +67,36 @@ $(function () {
             });
         }, 2000);
     }
+
+    function getCalendarList() {
+        var today=new Date(),
+            dayStr,
+            day,
+            calendar = $('.calendar-list');
+
+        for (var i = 0; i < total; i++) {
+            day = new Date(s1);
+            day.setDate(day.getDate() + i);
+   
+            if (day > today) {
+                break;
+            }
+            dayStr = day.getFullYear() + '-' + (day.getMonth() + 1) + '-' + day.getDate();
+            calendar.append('<div>' + '<span  class="cal-item" >' + dayStr + '</span></div>');
+        }
+
+        $('.calendar-list .cal-item').click(function () {
+            var url = location.origin + location.pathname + '#' + $(this).text();
+            location.href = url;
+            location.reload();
+        });
+    };
+
+    getCalendarList();
+
+    $('.btn-calendar').click(function () {
+    
+        $('#answer-card .question ,#answer-card .button-container ').hide();
+        $('.calendar-list').show();
+    });
 });
