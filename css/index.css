@@ -61,12 +61,22 @@
 .btn-calendar {
     text-align: center;
     position: absolute;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
     top: 4em;
     font-weight: bold;
-    color:#333;
+    color: #333;
+    font-size: 1.5em;
+    text-decoration:underline;
     display: none;
+}
+
+.btn-calendar>div.img-container {
+    display: none;
+}
+
+.btn-calendar>div.href-container {
+   line-height: 2em;
 }
 
 .btn-calendar>img {
@@ -83,7 +93,7 @@
 
 .calendar-list>div {
     width: 49%;
-    float:left;
+    float: left;
 }
 
 .calendar-list .cal-item {
