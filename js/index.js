@@ -78,6 +78,9 @@ $(function () {
             day,
             calendar = $('.calendar-list');
 
+        dayStr = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        today = new Date(dayStr);
+
         for (var i = 0; i < total; i++) {
             day = new Date(s1);
             day.setDate(day.getDate() + i);
@@ -89,11 +92,8 @@ $(function () {
             calendar.append('<div>' + '<span  class="cal-item" data-value="' + dayStr + '" >' + dayStr + '</span></div>');
         }
 
-
-        dayStr = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        today = new Date(dayStr);
         if (today > new Date(s2)) {
-
+            dayStr = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
             calendar.append('<div>' + '<span  class="cal-item" data-value="' + dayStr + '" >' + '随机抽题' + '</span></div>');
         }
 
