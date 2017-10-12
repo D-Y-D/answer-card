@@ -57,6 +57,10 @@ $(function () {
         opt.data = [];
     }
 
+    opt.finishedcallback = function () {
+        $('.btn-calendar').show();
+    }
+
     $('#answer-card').answercard(opt);
 
     window.onload = function () {
@@ -69,7 +73,7 @@ $(function () {
     }
 
     function getCalendarList() {
-        var today=new Date(),
+        var today = new Date(),
             dayStr,
             day,
             calendar = $('.calendar-list');
@@ -77,16 +81,24 @@ $(function () {
         for (var i = 0; i < total; i++) {
             day = new Date(s1);
             day.setDate(day.getDate() + i);
-   
+
             if (day > today) {
                 break;
             }
             dayStr = day.getFullYear() + '-' + (day.getMonth() + 1) + '-' + day.getDate();
-            calendar.append('<div>' + '<span  class="cal-item" >' + dayStr + '</span></div>');
+            calendar.append('<div>' + '<span  class="cal-item" data-value="' + dayStr + '" >' + dayStr + '</span></div>');
+        }
+
+
+        dayStr = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        today = new Date(dayStr);
+        if (today > new Date(s2)) {
+
+            calendar.append('<div>' + '<span  class="cal-item" data-value="' + dayStr + '" >' + '随机抽题' + '</span></div>');
         }
 
         $('.calendar-list .cal-item').click(function () {
-            var url = location.origin + location.pathname + '#' + $(this).text();
+            var url = location.origin + location.pathname + '#' + $(this).attr('data-value');
             location.href = url;
             location.reload();
         });
@@ -95,8 +107,17 @@ $(function () {
     getCalendarList();
 
     $('.btn-calendar').click(function () {
-    
-        $('#answer-card .question ,#answer-card .button-container ').hide();
+
+        $('#answer-card .question ,#answer-card .button-container , #answer-card .finish-container').hide();
+        $('.btn-calendar').hide();
         $('.calendar-list').show();
     });
+
+    if (location.hash) {
+
+    } else {
+        $('#answer-card .question ,#answer-card .button-container ').hide();
+        $('.calendar-list').show();
+    }
+
 });

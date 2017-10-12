@@ -89,6 +89,8 @@
         this.index = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
             'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
         ];
+
+        this.finishedcallback = opt.finishedcallback;
     }
 
     AnswerCard.prototype.create = function () {
@@ -286,6 +288,10 @@
 
         this.container.find('.question,.explain,.button-container').remove();
         this.container.find('header').after([finished].join(''));
+
+        if (typeof this.finishedcallback === 'function') {
+            this.finishedcallback();
+        }
     }
 
     AnswerCard.prototype.setButtonText = function (text) {
