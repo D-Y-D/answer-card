@@ -55,5 +55,35 @@
 .index_text_welcome>p {
     margin: 0;
     /* font-family: "华文行楷", "微软雅黑", "黑体", "宋体", "Simsun", sans-serif; */
-    font-family: "Microsoft YaHei","黑体","宋体",sans-serif;
+    font-family: "Microsoft YaHei", "黑体", "宋体", sans-serif;
+}
+
+.btn-calendar {
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    right: .6em;
+    top: 1.2em;
+}
+
+.btn-calendar>img {
+    width: 100%;
+    height: 100%;
+}
+
+.calendar-list {
+    height: 100%;
+    display: none;
+    padding-top: 2em;
+    text-align: center;
+}
+
+.calendar-list>div {
+    width: 49%;
+    float:left;
+}
+
+.calendar-list .cal-item {
+    line-height: 2.5em;
+    text-decoration: underline;
 }
