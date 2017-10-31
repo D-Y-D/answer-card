@@ -28,6 +28,21 @@
         ];
         //随机生成
         this.random = opt.random || false;
+        //抽题参数
+        this.rangeOpt = $.extend(true, {
+            radio: {
+                number: -1,
+                score: -1
+            },
+            checking: {
+                number: -1,
+                score: -1
+            },
+            multi: {
+                number: -1,
+                score: -1
+            }
+        }, opt.rangeOpt);
         //范围（个数）
         this.range = opt.range || null;
         //题库数据
@@ -237,8 +252,35 @@
 
         var container = this.container,
             singleGrade = Math.ceil(100 / this.data.length),
-            total = singleGrade * this.statistics.pass.length || 0,
+            //total = singleGrade * this.statistics.pass.length || 0,
+            score,
+            total = 0,
+            type,
+            passList = this.statistics.pass,
             grade;
+
+        for (var i = 0, len = passList.length; i < len; i++) {
+            type = this.data[passList[i]].type;
+            switch (type) {
+                case 'radio':
+                    score = this.rangeOpt.radio.score;
+                    break;
+                case 'checking':
+                    score = this.rangeOpt.checking.score;
+                    break;
+                case 'multi':
+                    score = this.rangeOpt.multi.score;
+                    break;
+                default:
+                    break;
+            }
+
+            if (score <= 0) {
+                score = singleGrade;
+            }
+
+            total += score;
+        }
 
         if (!total || isNaN(total)) {
             total = '000';
@@ -448,6 +490,10 @@
             length = end - start,
             total = this.data.length,
             data = [],
+            checkings = [],
+            radioes = [],
+            multis = [],
+            next = true,
             index;
 
         if (total <= length) {
@@ -456,6 +502,44 @@
         for (var i = start; i < end; i++) {
             var index = getRandom(0, total);
             if (questions.indexOf(index) === -1) {
+                //按类型抽题
+
+                //checking
+                if (this.rangeOpt.checking && this.rangeOpt.checking.number > 0 && checkings.length < this.rangeOpt.checking.number) {
+                    if (this.data[index].type === 'checking') {
+                        checkings.push(index);
+                        questions.push(index);
+                        continue;
+                    } else {
+                        --i;
+                        continue;
+                    }
+                }
+
+                //radio
+                if (this.rangeOpt.radio && this.rangeOpt.radio.number > 0 && radioes.length < this.rangeOpt.radio.number) {
+                    if (this.data[index].type === 'radio') {
+                        radioes.push(index);
+                        questions.push(index);
+                        continue;
+                    } else {
+                        --i;
+                        continue;
+                    }
+                }
+
+                //multi
+                if (this.rangeOpt.multi && this.rangeOpt.multi.number > 0 && multis.length < this.rangeOpt.multi.number) {
+                    if (this.data[index].type === 'multi') {
+                        multis.push(index);
+                        questions.push(index);
+                        continue;
+                    } else {
+                        --i;
+                        continue;
+                    }
+                }
+
                 questions.push(index);
             } else {
                 --i;
