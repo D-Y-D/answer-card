@@ -51,6 +51,21 @@ $(function () {
 
     if (opt.random) {
         opt.range = [0, 30];
+        opt.rangeOpt={
+            radio:{
+                number:10,
+                score:3
+            },
+            checking:{
+                number:10,
+                score:3
+            },
+            multi:{
+                number:10,
+                score:4
+            }
+
+        }
     }
 
     if (today < new Date(s1)) {
@@ -94,7 +109,7 @@ $(function () {
 
         if (today > new Date(s2)) {
             dayStr = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-            calendar.append('<div>' + '<span  class="cal-item" data-value="' + dayStr + '" >' + '随机抽题' + '</span></div>');
+            calendar.append('<div>' + '<span  class="cal-item" data-value="' + dayStr + '" >' + '随机测试' + '</span></div>');
         }
 
         $('.calendar-list .cal-item').click(function () {
