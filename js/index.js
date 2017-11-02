@@ -107,10 +107,14 @@ $(function () {
             calendar.append('<div>' + '<span  class="cal-item" data-value="' + dayStr + '" >' + dayStr + '</span></div>');
         }
 
-        if (today > new Date(s2)) {
-            dayStr = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-            calendar.append('<div>' + '<span  class="cal-item" data-value="' + dayStr + '" >' + '随机测试' + '</span></div>');
-        }
+        // if (today > new Date(s2)) {
+        //     dayStr = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        //     calendar.append('<div>' + '<span  class="cal-item" data-value="' + dayStr + '" >' + '随机测试' + '</span></div>');
+        // }
+
+        //dayStr = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        dayStr='2017-11-03';
+        calendar.append('<div>' + '<span  class="cal-item" data-value="' + dayStr + '" >' + '随机测试' + '</span></div>');
 
         $('.calendar-list .cal-item').click(function () {
             var url = location.origin + location.pathname + '#' + $(this).attr('data-value');
