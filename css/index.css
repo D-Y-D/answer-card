@@ -59,11 +59,14 @@
 }
 
 .btn-calendar {
-    width: 2em;
-    height: 2em;
+    text-align: center;
     position: absolute;
-    right: .6em;
-    top: 1.2em;
+    left:0;
+    right:0;
+    top: 4em;
+    font-weight: bold;
+    color:#333;
+    display: none;
 }
 
 .btn-calendar>img {
